@@ -18,6 +18,7 @@ export default defineConfig({
       'lucide-react@0.487.0': 'lucide-react',
       'jsr:@supabase': 'jsr:',
       'input-otp@1.4.2': 'input-otp',
+      'figma:asset/ddb6a8a59a409d93d9bb5cee711609eb050b8038.png': path.resolve(__dirname, './src/assets/ddb6a8a59a409d93d9bb5cee711609eb050b8038.png'),
       'embla-carousel-react@8.6.0': 'embla-carousel-react',
       'cmdk@1.1.1': 'cmdk',
       'class-variance-authority@0.7.1': 'class-variance-authority',
