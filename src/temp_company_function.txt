@@ -1,0 +1,24 @@
+// Company operations
+  const updateCompany = async (companyData: any) => {
+    try {
+      const result = await companyAPI.createOrUpdate(companyData);
+      
+      // Update local state immediately 
+      setState(prev => ({
+        ...prev,
+        company: result,
+        lastSync: new Date().toISOString()
+      }));
+      
+      return result;
+    } catch (error: any) {
+      if (error.code === 'permission-denied') {
+        const permissionError = 'Permission denied: Firestore security rules need to be configured to allow company updates. Please visit /firebase-setup to configure your security rules.';
+        setState(prev => ({ ...prev, error: permissionError }));
+        throw new Error(permissionError);
+      } else {
+        setState(prev => ({ ...prev, error: 'Failed to update company data' }));
+        throw error;
+      }
+    }
+  };
